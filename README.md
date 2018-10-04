@@ -34,12 +34,12 @@ chmod +x /var/www/nginx/up.sh
 ```
 
 # Link for update your project over Nginx:
-https://project1.loc/up.pl?host=project1&project=https://hg.mymercurial.loc/project1&user=username&pwd=password
+https://project1.loc/up.pl?host=project1&project=hg.mymercurial.loc/project1&user=username&pwd=password
 
 Where:
 
   1. **project1.loc** - your project domain
   2. **project1** - sub directory with your project in `/var/www`
-  3. **https://hg.mymercurial.loc/project1** - your project repository URL
+  3. **hg.mymercurial.loc/project1** - your project repository URL
   4. **username** - mercurial username
   5. **password** - mercurial password
