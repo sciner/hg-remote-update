@@ -1,7 +1,26 @@
 # hg-remote-update
 HG project update over Nginx
 
-# Add to host settings in NGINX:
+# Install script
+```
+apt-get install nginx libfcgi-perl
+wget http://nginxlibrary.com/downloads/perl-fcgi/fastcgi-wrapper -O /usr/bin/fastcgi-wrapper.pl
+wget http://nginxlibrary.com/downloads/perl-fcgi/perl-fcgi -O /etc/init.d/perl-fcgi
+chmod +x /usr/bin/fastcgi-wrapper.pl
+chmod +x /etc/init.d/perl-fcgi
+update-rc.d perl-fcgi defaults
+apt-get install libcgi-session-perl
+change username *www-data* to *root* in daemon script(/etc/init.d/perl-fcgi)
+/etc/init.d/perl-fcgi start
+mkdir /var/www
+mkdir /var/www/nginx
+wget https://github.com/sciner/hg-remote-update/raw/master/up.pl -O /var/www/nginx/up.pl
+wget https://github.com/sciner/hg-remote-update/raw/master/up.sh -O /var/www/nginx/up.sh
+chmod +x /var/www/nginx/up.pl
+chmod +x /var/www/nginx/up.sh
+```
+
+# Add to host settings in Nginx:
 ```
     root /var/www/nginx;
     location ~ \\.pl|cgi$ {
